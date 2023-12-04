@@ -1,0 +1,242 @@
+/* #date-div {
+  width: 70%;
+} */
+
+#title .book-now {
+  /* font-weight: bolder; */
+  font-size: 1.3rem;
+  /* height: 5%; */
+  background-color: #fedb39;
+  padding: 2.5% 4% 2.5%;
+  border: none;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  margin-top: 2%;
+}
+
+#title .book-now:hover {
+  background-color: #ffb200;
+  color: white;
+}
+#date {
+  padding: 6%;
+  border-radius: 3px;
+  border: none;
+}
+
+.rotate90 {
+  transform: rotate(90deg);
+}
+
+.exchange {
+  margin-left: 47%;
+  color: #fedb39;
+}
+
+#myform {
+  font-family: 'arial';
+}
+
+#myform h3 {
+  font-size: 2rem;
+  font-weight: 250;
+  font-family: 'arial';
+}
+
+#myform .card {
+  height: 350px;
+  margin-top: 2%;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  border: none;
+}
+
+#myform.login .card {
+  width: 500px;
+}
+
+#myform.signup .card {
+  width: 500px;
+}
+
+#myform.search .card {
+  width: 400px;
+}
+
+#myform.search {
+  padding-top: 3%;
+  padding-bottom: 5.5%;
+  text-align: left;
+}
+
+#myform .card-footer {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  padding: 1% auto 1%;
+}
+
+#myform .input-group-text {
+  line-height: normal;
+}
+
+#myform .social_icon span {
+  font-size: 50px;
+  margin-left: 10px;
+  color: #fedb39;
+}
+
+#myform .social_icon span:hover {
+  color: white;
+  cursor: pointer;
+}
+
+#myform .card-header h3 {
+  color: white;
+}
+
+#myform .card-header {
+  padding-top: 1.3%;
+  padding-bottom: 1%;
+}
+
+#myform .social_icon {
+  position: absolute;
+  right: 15px;
+  top: -45px;
+}
+
+#myform .input-group-prepend span {
+  width: 50px;
+  background-color: #fedb39;
+  color: black;
+  border: 0 !important;
+  font-size: 1rem;
+  padding-left: 30%;
+  margin: 0 auto;
+}
+
+#myform input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+#myform .remember {
+  color: white;
+  font-weight: bold;
+}
+
+#myform .remember input {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+#myform .myform_btn {
+  color: black;
+  background-color: white;
+  width: 30%;
+  font-size: 1.1rem;
+  border: none;
+  padding: 2% 0.5%;
+  letter-spacing: 0.15rem;
+  border-radius: 5%;
+  font-family: 'Merriweather';
+}
+
+#myform .myform_btn:hover {
+  color: black;
+  background-color: #fedb39;
+}
+
+#myform .links {
+  color: white;
+}
+
+#myform .links a {
+  margin-left: 4px;
+  color: #00c897;
+}
+
+#myform .links a:hover {
+  color: #00ffc6;
+}
+
+#myform .form-control {
+  height: 2%;
+  padding: 3% 3%;
+  width: 50px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+#myform .fas.fa-eye {
+  padding-top: 1%;
+}
+
+#myform .fas.fa-eye-slash {
+  padding-top: 1%;
+}
+
+@media (max-width: 994px) {
+  #myform h3 {
+    font-size: 1.5rem;
+  }
+
+  #myform.login .card {
+    height: 270px;
+    width: 300px;
+    margin: 10% auto 18%;
+  }
+  #myform.signup .card {
+    height: 270px;
+    width: 300px;
+    margin: 10% auto 18%;
+  }
+  #myform.search .card {
+    height: 310px;
+    width: 300px;
+    margin: 10% auto 18%;
+    text-align: center;
+  }
+  #myform.search .book-now {
+    font-size: 1.1rem;
+  }
+
+  #myform.container-fluid {
+    /* padding-left: 15%; */
+  }
+
+  #myform .social_icon span {
+    font-size: 30px;
+  }
+
+  #myform .social_icon {
+    top: -25px;
+  }
+
+  #myform .input-group-prepend span {
+    font-size: 0.7rem;
+  }
+
+  #myform .myform_btn {
+    width: 30%;
+    font-size: 0.8rem;
+  }
+
+  #myform .form-control {
+    height: 2%;
+    padding: 3% 3%;
+    width: 30px;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  #myform .card-footer {
+    font-size: 1rem;
+  }
+
+  #myform .remember {
+    font-size: 0.9rem;
+  }
+}

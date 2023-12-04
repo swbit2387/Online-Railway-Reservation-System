@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #5ddcf3;
+}
+.wrapper h1 {
+  font-size: 2.5rem;
+  margin: 1% 4%;
+  font-family: 'arial';
+  font-weight: lighter;
+  color: white;
+}
+#error {
+  margin: 1% auto 1%;
+  height: 60%;
+  width: 53%;
+}
