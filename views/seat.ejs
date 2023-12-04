@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('_head.ejs',{title}); -%>
+  </head>
+  <body>
+
+    <!-- navbar -->
+    <%- include('_navbar.ejs'); -%>
+    <section class="container train-info" id="train-heading">
+      <div class="container" style="display:flex;">
+       <h5 id="train-name" class="p-3"><%=train.name%></h5>
+       <h5 class="p-3">(</h5>
+       <h5 id="train-number" class="p-3"><%=train.trainNumber%></h5>
+       <h5 class="p-3">)</h5>
+       <h5 class="p-3"> | </h5>
+       <h5 id="from" class="p-3" ><%=from%> </h5>
+       <h5 class="p-3">To</h5>
+       <h5 id="to" class="p-3"><%=to%></h5>
+       <h5 class="p-3"> | </h5>
+       <h5 class="p-3">On</h5>
+       <h5 id="doj" class="p-3"><%=doj%></h5>
+      </div>
+     </section>
+      <!-- Title-Heading -->
+  <section class="" id="nav-tab">
+    <div class="table-structure">
+      <div class="flex-container container-fluid">
+        <div class="table-heading">
+          <div>Engine</div>
+          <div>Class</div>
+          <div>Number of Seats</div>
+        </div>
+        <%for(let coach of train.coaches){%>
+        <div class="table-data">
+          <div><%=coach.ID%></div>
+          <div><%=coach.coachType%></div>
+          <div><%=coach.noOfSeats%></div>
+        </div>
+        <%}%>
+      </div>
+    </div>
+    <div class="container-fluid tab-div" visibility="hidden">
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <%let i=0;%>
+          <%for(let coach of train.coaches){%>
+          <button class="nav-link <%=i==0?'active':''%> " id="" data-bs-toggle="tab" data-bs-target="#<%=coach.ID%>" type="button" role="tab" >
+            <%=coach.ID%>
+          </button>
+          <%i++;%>
+          <%}%>
+        </div>
+      </nav>
+      <!-- <form class="" action="" method="post"> -->
+      <div class="tab-content" id="nav-tabContent">
+        <%for(let i=0;i< train.coaches.length;i++){%>
+          <%coach=train.coaches[i];let tempClass='';%>
+          <div class="tab-pane fade show <%=i==0?'active':''%>" id="<%=coach.ID%>" role="tabpanel" aria-labelledby="nav-home-tab">
+
+            <div class="flex-container container-fluid">
+              <%let totalBerth= (coach.noOfSeats)/(coach.noOfSeatsInSide+coach.noOfSeatsInNonSide);%>
+              <%let seatNumber=1;%>
+              <%for(let j=0;j< totalBerth;j++){%>
+                <div class="berth">
+                  <h6>berth<%=j+1%></h6>
+                  <div class="side-berth">
+                    <%for(let b =0;b<coach.noOfSeatsInSide/2;b++){%>
+                      <div class="flex-container">
+                        <article class="feature" >
+                          <%let bookingStatusInput=bookedSeats.includes(`${coach.ID}-${seatNumber}`)?'disable':'';%>
+                          <%let bookingStatusDiv=bookedSeats.includes(`${coach.ID}-${seatNumber}`)?'disable-bg':'';%>
+                          <input  class="<%=bookingStatusInput%>" type="checkbox" id="seat1" value="<%=coach.ID%>-<%=seatNumber%>" name="box" />
+                          <div id="<%=coach.ID%>-<%=seatNumber%>" class="bg <%=bookingStatusDiv%>">
+                            <%=coach.ID%>-<%=seatNumber%>
+                          </div>
+                        </article>
+
+                        <div class="empty">
+                        </div>
+
+                        <article class="feature">
+                          <% bookingStatusInput=bookedSeats.includes(`${coach.ID}-${seatNumber+1}`)?'disable':'';%>
+                          <% bookingStatusDiv=bookedSeats.includes(`${coach.ID}-${seatNumber+1}`)?'disable-bg':'';%>
+                          <input class="<%=bookingStatusInput%>" type="checkbox" id="seat2" value="<%=coach.ID%>-<%=seatNumber+1%>" name="box" />
+                          <div id="<%=coach.ID%>-<%=seatNumber+1%>" class="bg <%=bookingStatusDiv%>">
+                            <%=coach.ID%>-<%=seatNumber+1%>
+                          </div>
+                        </article>
+                      </div>
+                      <%seatNumber+=2;%>
+                    <%}%>
+                  </div>
+                  <div class="empty">
+                  </div>
+                  <div class="cont non-side-berth">
+                    <%for(let b =0;b<coach.noOfSeatsInNonSide/2;b++){%>
+                      <div class="flex-container">
+                        <article class="feature">
+                          <% bookingStatusInput=bookedSeats.includes(`${coach.ID}-${seatNumber}`)?'disable':'';%>
+                          <% bookingStatusDiv=bookedSeats.includes(`${coach.ID}-${seatNumber}`)?'disable-bg':'';%>
+                          <input class="<%=bookingStatusInput%>" type="checkbox" id="seat2" value="<%=coach.ID%>-<%=seatNumber%>" name="box" />
+                          <div id="<%=coach.ID%>-<%=seatNumber%>" class="bg <%=bookingStatusDiv%>">
+                            <%=coach.ID%>-<%=seatNumber%>
+                          </div>
+                        </article>
+
+                        <div class="empty">
+                        </div>
+
+                        <article class="feature">
+                          <% bookingStatusInput=bookedSeats.includes(`${coach.ID}-${seatNumber+1}`)?'disable':'';%>
+                          <% bookingStatusDiv=bookedSeats.includes(`${coach.ID}-${seatNumber+1}`)?'disable-bg':'';%>
+                          <input class="<%=bookingStatusInput%>" type="checkbox" id="seat2" value="<%=coach.ID%>-<%=seatNumber+1%>" name="box" />
+                          <div id="<%=coach.ID%>-<%=seatNumber+1%>" class="bg <%=bookingStatusDiv%>">
+                            <%=coach.ID%>-<%=seatNumber+1%>
+                          </div>
+                        </article>
+                      </div>
+                      <%seatNumber+=2;%>
+                    <%}%>
+                    
+                  </div>
+                </div>
+            <%}%>
+
+          </div>
+        </div>
+        <%}%>
+
+      </div>
+      <button type="submit" onclick="myFunc()" class="btn submit-btn" style="color:black;margin:20px auto;padding:10px;position:relative;">Submit</button>
+      <!-- </form> -->
+    </div>
+
+  </section>
+
+  <!-- Passenger information form -->
+  <section class="container-fluid passenger-info" style="display:none;">
+  <div class="row my-4">
+    <div class="col-lg-10 mx-auto">
+      <div class="card shadow">
+        <div class="card-header">
+          <h4>Passenger Info</h4>
+        </div>
+        <div class="card-body p-4">
+          <form id="" class="info form--seatDetails" action="" >
+            <!-- <input type="text" id="fromTo" name="" value=""> -->
+            <div id="show_item">
+
+            </div>
+            <button type="submit"  class="btn submit-btn" style="color:black;margin:20px auto;padding:10px;position:relative;">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </section>
+  
+
+
+
+    <!--footer-->
+    <%- include('_footer.ejs'); -%>
+    <script src="/js/seat.js"></script>
+
+  </body>
+</html>

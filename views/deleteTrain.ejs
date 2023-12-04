@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('_head.ejs',{title}); -%>
+  </head>
+  <body>
+    <!-- navbar -->
+    <%- include('_navbar.ejs'); -%>
+
+    <!-- title-heading -->
+    <section
+      class=""
+      id="title"
+      style="
+        position: relative;
+        background-image: url('/images/bg2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+      "
+    >
+      <div class="container-fluid login" id="myform">
+        <div class="card">
+          <div class="card-header">
+            <h3>DELETE TRAIN</h3>
+            <div class="d-flex justify-content-end social_icon">
+              <span><i class="fab fa-facebook-square"></i></span>
+              <span><i class="fab fa-google-plus-square"></i></span>
+              <span><i class="fab fa-twitter-square"></i></span>
+            </div>
+          </div>
+          <div class="card-body">
+            <form id="login" class="form-deleteTrain">
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="TrainNumber"
+                  id="trainNumber123"
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="submit"
+                  value="DELETE"
+                  class="btn float-right myform_btn"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex justify-content-center links">
+              Don't have an account?<a href="signup">Sign Up</a>
+            </div>
+            <div class="d-flex justify-content-center links">
+              <a href="forgot.html">Forgot your password?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--footer-->
+    <%- include('_footer.ejs'); -%>
+    <script src="js/train.js"></script>
+  </body>
+</html>

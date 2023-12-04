@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('_head.ejs',{title}); -%>
+  </head>
+  <body>
+    <!-- navbar -->
+    <%- include('_navbar.ejs'); -%>
+
+    <!-- title-heading -->
+    <section
+      class=""
+      id="title"
+      style="
+        position: relative;
+        background-image: url('/images/bg2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+      "
+    >
+      <div class="container-fluid login" id="myform">
+        <div class="card">
+          <div class="card-header">
+            <h3>ADD TRAIN</h3>
+            <div class="d-flex justify-content-end social_icon">
+              <span><i class="fab fa-facebook-square"></i></span>
+              <span><i class="fab fa-google-plus-square"></i></span>
+              <span><i class="fab fa-twitter-square"></i></span>
+            </div>
+          </div>
+          <div class="card-body">
+            <form id="login" class="form-addTrain">
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                  id="name12"
+                />
+              </div>
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="TrainNumber"
+                  id="trainNumber"
+                />
+              </div>
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="trainType"
+                  id="trainType"
+                />
+              </div>
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="baseFare"
+                  id="baseFare"
+                />
+              </div>
+              <!-- <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="route"
+                  id="route"
+                />
+              </div>
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="stops"
+                  id="stops"
+                />
+              </div>
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="ReservationCharges"
+                  id="reservationCharges"
+                />
+              </div> -->
+              <!-- <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="runsOn"
+                  id="runsOn"
+                />
+              </div> -->
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="superFastCharge"
+                  id="superFastCharge"
+                />
+              </div>
+              <!-- <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="coaches"
+                  id="coaches"
+                />
+              </div> -->
+
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+                <input list="browsers" name="route" id="route" />
+
+                <datalist id="browsers">
+                  <%for(route of routes){%>
+ 		<%console.log("********")%>
+		 <%console.log(route.route)%>
+		<%console.log("********")%>
+                    <%let x = "";%>
+                    <%for(station of route.route){%>
+			<%x += station.name + ", "%>
+                      <%}%>
+                  <option value="<%=route._id%>"><%=x%></option>
+                  
+                  <%}%>
+                </datalist>
+              </div>
+		
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+        <input class="form-control" type="text" name="runsArray[]" value="" /><br>
+        <input class="form-control" type="text" name="runsArray[]" value="" /><br>
+        <input class="form-control" type="text" name="runsArray[]" value="" /><br>
+        <input class="form-control" type="text" name="runsArray[]" value="" /><br>
+        <input class="form-control" type="text" name="runsArray[]" value="" /><br>
+              </div>
+
+	<div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                </div>
+        <input class="form-control" type="number" name="resArray[]" value="" /><br>
+        <input class="form-control" type="number" name="resArray[]" value="" /><br>
+        <input class="form-control" type="number" name="resArray[]" value="" /><br>
+        <input class="form-control" type="number" name="resArray[]" value="" /><br>
+        <input class="form-control" type="number" name="resArray[]" value="" /><br>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="submit"
+                  value="ADD"
+                  class="btn float-right myform_btn"
+                />
+              </div>
+            </form>
+          </div>
+          <!-- <div class="card-footer">
+            <div class="d-flex justify-content-center links">
+              Don't have an account?<a href="signup">Sign Up</a>
+            </div>
+            <div class="d-flex justify-content-center links">
+              <a href="forgot.html">Forgot your password?</a>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!--footer-->
+    <%- include('_footer.ejs'); -%>
+    <script src="js/train.js"></script>
+  </body>
+</html>

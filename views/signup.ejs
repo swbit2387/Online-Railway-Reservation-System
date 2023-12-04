@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('_head.ejs',{title}); -%>
+  </head>
+  <body>
+
+    <!-- navbar -->
+    <%- include('_navbar.ejs'); -%>
+
+    <!-- title-heading -->
+    <section class="" id="title" style="position:relative;background-image: url('images/bg2.jpg');background-size: cover;background-repeat: no-repeat;">
+        <div class="container-fluid signup" id="myform">
+          <div class="card">
+            <div class="card-header">
+              <h3>Sign Up</h3>
+              <div class="d-flex justify-content-end social_icon">
+                <span><i class="fab fa-facebook-square"></i></span>
+                <span><i class="fab fa-google-plus-square"></i></span>
+                <span><i class="fab fa-twitter-square"></i></span>
+              </div>
+            </div>
+            <div class="card-body">
+              <form  class="form--signup">
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Username" id="name">
+                </div>
+    
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                  </div>
+                  <input type="email" class="form-control" placeholder="Email" id="email">
+                </div>
+    
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                  </div>
+                  <input type="password" class="form-control" placeholder="Password" id="password">
+                  <span class="input-group-text fas fa-eye fa-1x toggle-password1"></span>
+                </div>
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                  </div>
+                  <input type="password" class="form-control" placeholder="Confirm Password" id="password-confirm">
+                  <span class="input-group-text fas fa-eye fa-1x toggle-password2"></span>
+                </div>
+    
+                <div class="row align-items-center remember">
+                  <input type="checkbox">Remember Me
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Signup" class="btn float-right myform_btn">
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+              <div class="d-flex justify-content-center links">
+                Already have an account ?<a href="login">Login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!--footer-->
+    <%- include('_footer.ejs'); -%>
+    <script src="js/signup.js"></script>
+  </body>
+</html>

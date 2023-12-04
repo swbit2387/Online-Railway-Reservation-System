@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('_head.ejs',{title}); -%>
+    <link rel="stylesheet" href="/css/my-bookings.css">
+  </head>
+  <body>
+
+    <!-- navbar -->
+    <%- include('_navbar.ejs'); -%>
+
+
+    
+    <section class="" id="my-bookings" style="position:relative;background-size: cover;background-repeat: no-repeat; background-color: #7FE9DE">
+      <div class="container" style="padding:2%;"><h2>My Bookings</h2></div>
+      <div class="container ticket" id="">
+          <%let i=1;%>
+          <%for(let booking of bookings){%>
+            <div class="card ticket-card">
+              <div class="card-header "><div><h5><%=booking.train.name%>(<%=booking.train.trainNumber%>)</h5></div><div><h5>Booking Date: <%=booking.dateOfBooking.toISOString().split('T')[0]%></h5></div></div>
+              <div class="card-body">
+                <div class="custom-body">
+                <div><h5 class="card-title">18:50 | <%=booking.from.name%> | <%=booking.dateOfJourney.toISOString().split('T')[0]%></h5></div>
+                <!-- <div><h5 class="card-title">--03:50--</h5></div> -->
+                <div><h5 class="card-title">22:40 | <%=booking.to.name%> | <%=booking.dateOfJourney.toISOString().split('T')[0]%></h5></div>
+              </div>
+              <button class="button view-details"  onclick="viewDetails(this.id)" id="<%=i%>">View Details</button>
+            </div>
+            
+              <div class="container pass-info targetDiv"   id="div<%=i%>" style="display: none;">
+                <div class="row my-4">
+                  <div class="col-lg-11 mx-auto">
+                    <div class="card shadow">
+                      <div class="card-header">
+                        <h4>Passenger Info</h4>
+                      </div>
+                      <div class="card-body p-4">
+                        <%for(let passenger of booking.seats){%>
+                            <div class="row">
+                              <div class="col-md-3 mb-1">
+                                <input type="text" name="name[]" class="form-control name" placeholder="<%=passenger.name%>" id="name"  disabled>
+                              </div>
+                              <div class="col-md-2 mb-1">
+                                <input type="number" name="age[]" class="form-control age" placeholder="<%=passenger.age%>" id="age"  disabled>
+                              </div>
+                              <div class="col-md-2 mb-1">
+                                <input type="text" name="gender[]" class="form-control gender" placeholder="<%=passenger.gender=='M'?'Male':'Female'%>" id="gender"  disabled>
+                              </div>
+                              <div class="col-md-2 mb-1">
+                                <input type="text" name="coach[]" class="form-control coach" placeholder="Coach: <%=passenger.coach%>" id="coach" disabled>
+                              </div>
+                              <div class="col-md-3 mb-1">
+                                <input type="text" name="seat[]" class="form-control seatNumber" placeholder="Seat-Number: <%=passenger.seatNumber%>" id="seatNumber" disabled>
+                              </div>
+                            </div>
+                        <%}%>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+              <button class="btn btn-danger btn-lg cancel-ticket"  onclick="doOperation(this.id)" id="<%=booking.id%>" >Cancel Ticket</button>
+            </div>
+            <%i++;%>
+            <%}%>
+          </div>
+
+          
+    </section>
+
+
+    <!--footer-->
+    <%- include('_footer.ejs'); -%>
+    <script src="/js/myBookings.js"></script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('_head.ejs',{title}); -%>
+  </head>
+  <body>
+
+    <!-- navbar -->
+    <%- include('_navbar.ejs'); -%>
+
+    <!-- title-heading -->
+    <%- include('_title-heading.ejs'); -%>
+
+    <!--features-->
+    <%- include('_features.ejs'); -%>
+
+    <!--testimonial-->
+
+
+    <section class="colored-section" id="testimonials" style="background-image: url('images/train-inside.jpg');background-size: 100vw 100vh;background-repeat: no-repeat;">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+  
+          <div class="carousel-item active container-fluid">
+            <h2 class="testimonial-text">I no longer have to go to ticket counter for booking tickets as i found a easy and convinient way for booking tickets.</h2>
+            <img class="testimonial-image" src="images/lady-img.jpg" alt="man-profile">
+            <strong><em>Pebbles, New York</em></strong>
+          </div>
+          <%- include('_carousel-item.ejs'); -%>
+  
+        </div>
+  
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+  
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+  
+      </div>
+  
+  
+    </section>
+  
+
+    <!--pricing-heading-->
+    <%- include('_pricing-heading.ejs'); -%>
+
+    <!--pricing-->
+    <section class="white-section" id="pricing">
+      <div class="row">
+          <%- include('_price-card.ejs'); -%>
+          <%- include('_price-card.ejs'); -%>
+          <%- include('_price-card.ejs'); -%>
+
+      </div>
+    </section>
+
+    <!--video-->
+    <%- include('_video.ejs'); -%>
+
+    <!--footer-->
+    <%- include('_footer.ejs'); -%>
+    <script>
+        window.onload=function(){
+          let limit = new Date(Date.now());
+          limit.setDate(limit.getDate() + 1);
+          var today = limit.toISOString().split('T')[0];
+          document.getElementsByName("setTodaysDate")[0].setAttribute('min', today);
+      }
+    </script>
+  </body>
+</html>

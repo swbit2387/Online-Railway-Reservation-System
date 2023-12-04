@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('_head.ejs',{title}); -%>
+    <link rel="stylesheet" href="/css/train-card.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <%- include('_navbar.ejs'); -%>
+
+    <section
+      class=""
+      id="title"
+      style="
+        position: relative;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: rgba(260, 210, 40, 0.9);
+      "
+    >
+      <div class="container-fluid train" id="">
+        <%for(user of users){%>
+        <div class="card train-card">
+          <div class="card-header">
+            <div><h5>User name: <%=user.name%></h5></div>
+            <div><h5>Email: <%=user.email%></h5></div>
+          </div>
+          <div class="card-body">
+            <button
+              class="btn btn-danger btn-lg cancel-ticket"
+              onclick="deleteUser(this.id)"
+              id="<%=user.id%>"
+            >
+              DELETE
+            </button>
+          </div>
+        </div>
+        <%}%>
+      </div>
+    </section>
+
+    <!--footer-->
+    <%- include('_footer.ejs'); -%>
+    <script src="/js/user.js"></script>
+  </body>
+</html>

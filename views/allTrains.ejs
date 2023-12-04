@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('_head.ejs',{title}); -%>
+    <link rel="stylesheet" href="/css/train-card.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <%- include('_navbar.ejs'); -%>
+
+    <section
+      class=""
+      id="title"
+      style="
+        position: relative;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: rgba(260, 210, 40, 0.9);
+      "
+    >
+      <div class="container-fluid train" id="">
+        <%for(train of trains){%>
+        <div class="card train-card">
+          <div class="card-header">
+            <div><h5><%=train.name%>(<%=train.trainNumber%>)</h5></div>
+            <div><h5>Runs On: <%=train.runsOn%></h5></div>
+            <div><h5>Train Schedule</h5></div>
+          </div>
+          <div class="card-body">
+            <div class="custom-body">
+              <div>
+                <h5 class="card-title">
+                  <%=train.stops[0].departure%> |
+                  <%=train.stops[0].station.name%>
+                </h5>
+              </div>
+              <div><h5 class="card-title">--03:50--</h5></div>
+              <div>
+                <h5 class="card-title">
+                  <%=train.stops[train.stops.length-1].arrival%> |
+                  <%=train.stops[train.stops.length-1].station.name%>
+                </h5>
+              </div>
+            </div>
+
+            <a href="/train/updateTrain/<%=train._id%>" class="btn">UPDATE</a>
+            <button
+              class="btn btn-danger btn-lg cancel-ticket"
+              onclick="deleteTrain(this.id)"
+              id="<%=train.id%>"
+            >
+              DELETE
+            </button>
+          </div>
+        </div>
+        <%}%>
+      </div>
+    </section>
+
+    <!--footer-->
+    <%- include('_footer.ejs'); -%>
+    <script src="/js/train.js"></script>
+  </body>
+</html>

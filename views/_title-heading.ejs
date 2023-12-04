@@ -1,0 +1,93 @@
+<section
+  class="row"
+  id="title"
+  style="
+    position: relative;
+    background-image: url('images/bg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  "
+>
+  <div class="col-lg-5 container-fluid" id="title-heading">
+    <h1 class="big-heading">Now book trains from anywhere in India.</h1>
+  </div>
+  <div class="col-lg-7 search" id="myform">
+    <div class="card">
+      <div class="card-header">
+        <h3>Search Trains</h3>
+      </div>
+      <div class="card-body">
+        <form
+          id="search"
+          method="post"
+          action="testing.html"
+          class="form--search"
+        >
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><i class="fa fa-location-arrow"></i
+              ></span>
+            </div>
+            <input
+              id="from"
+              class="form-control"
+              list="somethingelse"
+              placeholder="From"
+            />
+            <datalist id="somethingelse">
+              <%for(station of stations){%>
+              <option value="<%=station.code%>"><%=station.name%></option>
+              <%}%>
+            </datalist>
+          </div>
+          <div class="input-group form-group exchange">
+            <i class="fa fa-exchange rotate90"></i>
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><i class="fa fa-map-marker"></i
+              ></span>
+            </div>
+            <input
+              id="to"
+              class="form-control"
+              list="somethingelse"
+              placeholder="To"
+            />
+            <datalist id="somethingelse">
+              <option value="Howrah">HWH</option>
+              <option value="Kolkata">KOAA</option>
+              <option value="Raipur">R</option>
+              <option value="Kumardubi">KMME</option>
+            </datalist>
+          </div>
+          <div class="input-group form-group" id="date-div">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><i class="fa fa-calendar"></i
+              ></span>
+            </div>
+            <input
+              id="date"
+              name="setTodaysDate"
+              type="date"
+              class="form-control"
+              placeholder="Date"
+            />
+          </div>
+
+          <div class="form-group">
+            <button
+              type="submit"
+              class="btn btn-success btn-lg book-now float-right"
+            >
+              Search &nbsp<i class="fa fa-search"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
